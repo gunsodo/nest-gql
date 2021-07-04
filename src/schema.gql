@@ -1,0 +1,67 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: String!
+  firstName: String
+  lastName: String
+  email: String
+
+  """Card type"""
+  membership: String!
+}
+
+type Content {
+  id: String!
+  name: String!
+  rating: Float!
+
+  """Card type"""
+  membership: String!
+}
+
+type Query {
+  users: [User!]!
+  user(id: String!): User!
+  user_contents(id: String!): [Content!]!
+  contents: [Content!]!
+  content(id: Int!): Content!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+  createContent(createContentInput: CreateContentInput!): Content!
+  updateContent(updateContentInput: UpdateContentInput!): Content!
+  removeContent(id: String!): Content!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  membership: String!
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  email: String
+  membership: String
+  id: String!
+}
+
+input CreateContentInput {
+  name: String!
+  rating: Float!
+  membership: String!
+}
+
+input UpdateContentInput {
+  name: String
+  rating: Float
+  membership: String
+  id: String!
+}
